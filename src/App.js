@@ -1,24 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useEffect, useState } from 'react';
+import Profile from './components/Profile';
+
 
 function App() {
+  const Name = "Daffa surya arrayan";
+  console.log(Name)
+  const [Myangka , setMyangka] = useState(1);
+  const [state, setState] = useState(); 
+
+  const Handleinput = (e) => {
+   setState(e.target.value)  // berfungsi untuk menjalankan input 
+  }
+
+  useEffect(() => {
+   alert("Hayoo ngapain hayoo..")
+  }, [1])
+ 
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  <div>
+    <h2>saya memiliki {Myangka} angka</h2>
+    <button onClick={() => setMyangka((prev) => prev + 1)}>tambah angka</button>
+    <button onClick={() => setMyangka((prev) => prev - 1)}>kurangi angka</button>
+    <h2>{state}</h2>
+   <input type='text' onChange={Handleinput}/>
+   <Profile/>
+  </div>
   );
 }
 
